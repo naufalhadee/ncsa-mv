@@ -1,0 +1,28 @@
+{
+  "name": "NCSA-MV Workspace",
+  "build": { "dockerfile": "Dockerfile" },
+  "features": {
+    // optional: GitHub Codespaces built-in features
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/aws-cli:1": {}
+  },
+  "postCreateCommand": "pnpm install",
+  "forwardPorts": [3000, 3001],
+  "portsAttributes": {
+    "3000": { "label": "Next.js", "onAutoForward": "openBrowser" },
+    "3001": { "label": "Nest API", "onAutoForward": "openBrowser" }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh"
+      },
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "nrwl.angular-console",   // good Nest schematic UI
+        "Prisma.prisma"
+      ]
+    }
+  }
+}
